@@ -1,0 +1,675 @@
+/**
+ * Penkov WebP/AVIF Optimizer — Admin Styles
+ *
+ * Clean, modern UI with card layout, custom toggles,
+ * progress bars, and responsive design.
+ *
+ * @package PenkovStudio\ImageOptimizer
+ */
+
+/* ═══════════════════════════════════════════════════════════
+   Variables
+   ═══════════════════════════════════════════════════════════ */
+:root {
+    --pk-primary:    #2271b1;
+    --pk-primary-dk: #135e96;
+    --pk-green:      #00a32a;
+    --pk-green-bg:   #edfaef;
+    --pk-orange:     #dba617;
+    --pk-orange-bg:  #fef8e7;
+    --pk-red:        #d63638;
+    --pk-red-bg:     #fcf0f1;
+    --pk-purple:     #7c5cbf;
+    --pk-purple-bg:  #f3f0f9;
+    --pk-blue-bg:    #f0f6fc;
+    --pk-gray:       #787c82;
+    --pk-gray-lt:    #f0f0f1;
+    --pk-border:     #dcdcde;
+    --pk-card-shadow: 0 1px 3px rgba(0,0,0,.08);
+    --pk-radius:     8px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Layout
+   ═══════════════════════════════════════════════════════════ */
+.penkov-opt-wrap {
+    max-width: 960px;
+    margin: 20px auto 40px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+/* ─── Header ──────────────────────────────────────────────── */
+.penkov-opt-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #1d2327 0%, #2c3338 100%);
+    color: #fff;
+    border-radius: var(--pk-radius) var(--pk-radius) 0 0;
+}
+.penkov-opt-header h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.penkov-opt-header .dashicons {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+}
+.penkov-opt-version {
+    margin-left: auto;
+    font-size: 12px;
+    opacity: .6;
+    background: rgba(255,255,255,.12);
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+/* ─── Tabs ────────────────────────────────────────────────── */
+.penkov-opt-tabs {
+    display: flex;
+    background: #fff;
+    border: 1px solid var(--pk-border);
+    border-top: none;
+    overflow-x: auto;
+}
+.penkov-opt-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--pk-gray);
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all .15s ease;
+    white-space: nowrap;
+}
+.penkov-opt-tab:hover {
+    color: var(--pk-primary);
+    background: var(--pk-blue-bg);
+}
+.penkov-opt-tab.active {
+    color: var(--pk-primary);
+    border-bottom-color: var(--pk-primary);
+    background: var(--pk-blue-bg);
+}
+.penkov-opt-tab .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* ─── Content ─────────────────────────────────────────────── */
+.penkov-opt-content {
+    background: #fff;
+    border: 1px solid var(--pk-border);
+    border-top: none;
+    padding: 24px;
+    border-radius: 0 0 var(--pk-radius) var(--pk-radius);
+}
+
+/* ─── Footer ──────────────────────────────────────────────── */
+.penkov-opt-footer {
+    text-align: center;
+    padding: 16px;
+    color: var(--pk-gray);
+    font-size: 12px;
+}
+.penkov-opt-footer a {
+    color: var(--pk-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Cards (Dashboard)
+   ═══════════════════════════════════════════════════════════ */
+.penkov-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.penkov-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    border-radius: var(--pk-radius);
+    box-shadow: var(--pk-card-shadow);
+    border: 1px solid var(--pk-border);
+}
+.penkov-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.penkov-card-icon .dashicons {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    color: #fff;
+}
+.penkov-card-body h3 {
+    margin: 0 0 2px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.penkov-card-body p {
+    margin: 0;
+    color: var(--pk-gray);
+    font-size: 12px;
+}
+
+.penkov-card-blue  { background: var(--pk-blue-bg); }
+.penkov-card-blue  .penkov-card-icon { background: var(--pk-primary); }
+.penkov-card-green { background: var(--pk-green-bg); }
+.penkov-card-green .penkov-card-icon { background: var(--pk-green); }
+.penkov-card-orange { background: var(--pk-orange-bg); }
+.penkov-card-orange .penkov-card-icon { background: var(--pk-orange); }
+.penkov-card-purple { background: var(--pk-purple-bg); }
+.penkov-card-purple .penkov-card-icon { background: var(--pk-purple); }
+
+/* ═══════════════════════════════════════════════════════════
+   Sections
+   ═══════════════════════════════════════════════════════════ */
+.penkov-section {
+    margin-bottom: 28px;
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid var(--pk-border);
+    border-radius: var(--pk-radius);
+}
+.penkov-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d2327;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--pk-border);
+}
+.penkov-section h2 .dashicons {
+    color: var(--pk-primary);
+}
+
+/* ─── Field rows ──────────────────────────────────────────── */
+.penkov-field-row {
+    margin-bottom: 16px;
+}
+.penkov-field-row > label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #1d2327;
+    font-size: 13px;
+}
+.penkov-field-row input[type="text"],
+.penkov-field-row input[type="url"],
+.penkov-field-row input[type="number"],
+.penkov-field-row textarea,
+.penkov-field-row select {
+    border-radius: 4px;
+}
+.penkov-field-row .description {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--pk-gray);
+}
+
+/* ─── Toggle group (radio buttons as pills) ───────────────── */
+.penkov-toggle-group {
+    display: inline-flex;
+    border: 1px solid var(--pk-border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+.penkov-toggle-btn {
+    padding: 8px 18px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    background: #fff;
+    border-right: 1px solid var(--pk-border);
+    transition: all .15s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.penkov-toggle-btn:last-child {
+    border-right: none;
+}
+.penkov-toggle-btn input {
+    display: none;
+}
+.penkov-toggle-btn:hover {
+    background: var(--pk-blue-bg);
+}
+.penkov-toggle-btn.active {
+    background: var(--pk-primary);
+    color: #fff;
+}
+
+/* ─── Quality slider ──────────────────────────────────────── */
+input[type="range"]#penkov-quality {
+    width: 100%;
+    max-width: 400px;
+    -webkit-appearance: none;
+    height: 6px;
+    background: linear-gradient(90deg, var(--pk-green) 0%, var(--pk-orange) 50%, var(--pk-red) 100%);
+    border-radius: 3px;
+    outline: none;
+}
+input[type="range"]#penkov-quality::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--pk-primary);
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+.penkov-quality-val {
+    display: inline-block;
+    background: var(--pk-primary);
+    color: #fff;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-left: 6px;
+}
+
+/* ─── Presets ─────────────────────────────────────────────── */
+.penkov-presets {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.penkov-preset-btn {
+    padding: 6px 14px;
+    border: 1px solid var(--pk-border);
+    border-radius: 20px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all .15s;
+}
+.penkov-preset-btn:hover {
+    border-color: var(--pk-primary);
+    color: var(--pk-primary);
+}
+.penkov-preset-btn.active {
+    background: var(--pk-primary);
+    color: #fff;
+    border-color: var(--pk-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Danger Zone
+   ═══════════════════════════════════════════════════════════ */
+.penkov-section-danger {
+    border-color: var(--pk-red);
+    background: var(--pk-red-bg);
+}
+.penkov-section-danger h2 {
+    color: var(--pk-red);
+    border-bottom-color: rgba(214,54,56,.2);
+}
+.penkov-section-danger h2 .dashicons {
+    color: var(--pk-red);
+}
+.penkov-danger-card {
+    background: #fff;
+    border: 1px solid rgba(214,54,56,.3);
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+.penkov-danger-text {
+    color: var(--pk-red);
+    font-size: 13px;
+    line-height: 1.6;
+}
+.penkov-danger-toggle input {
+    accent-color: var(--pk-red);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Capabilities Table
+   ═══════════════════════════════════════════════════════════ */
+.penkov-caps-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.penkov-caps-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--pk-border);
+    font-size: 13px;
+}
+.penkov-caps-table td:first-child {
+    font-weight: 500;
+    width: 200px;
+}
+
+/* ─── Badges ──────────────────────────────────────────────── */
+.penkov-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+}
+.penkov-badge-ok, .penkov-badge-success {
+    background: var(--pk-green-bg);
+    color: var(--pk-green);
+}
+.penkov-badge-warn, .penkov-badge-warning {
+    background: var(--pk-orange-bg);
+    color: #996800;
+}
+.penkov-badge-err, .penkov-badge-error {
+    background: var(--pk-red-bg);
+    color: var(--pk-red);
+}
+.penkov-badge-info {
+    background: var(--pk-blue-bg);
+    color: var(--pk-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Progress Bar (Bulk)
+   ═══════════════════════════════════════════════════════════ */
+.penkov-progress-wrap {
+    margin: 20px 0;
+}
+.penkov-progress-bar {
+    width: 100%;
+    height: 24px;
+    background: var(--pk-gray-lt);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+.penkov-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pk-green) 0%, #4caf50 100%);
+    border-radius: 12px;
+    transition: width .3s ease;
+    position: relative;
+}
+.penkov-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        -45deg,
+        rgba(255,255,255,.15) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255,255,255,.15) 50%,
+        rgba(255,255,255,.15) 75%,
+        transparent 75%
+    );
+    background-size: 30px 30px;
+    animation: penkov-stripe 1s linear infinite;
+}
+@keyframes penkov-stripe {
+    0% { background-position: 0 0; }
+    100% { background-position: 30px 30px; }
+}
+.penkov-progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--pk-gray);
+}
+#penkov-progress-text {
+    font-weight: 600;
+    color: var(--pk-green);
+}
+
+/* ─── Bulk stats ──────────────────────────────────────────── */
+.penkov-bulk-stats {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.penkov-stat {
+    font-size: 14px;
+    color: var(--pk-gray);
+}
+.penkov-stat strong {
+    font-size: 20px;
+    color: #1d2327;
+    margin-right: 4px;
+}
+.penkov-stat-highlight strong {
+    color: var(--pk-primary);
+}
+
+/* ─── Bulk actions ────────────────────────────────────────── */
+.penkov-bulk-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.penkov-bulk-actions .button-hero {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.penkov-bulk-actions .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* ─── Bulk log ────────────────────────────────────────────── */
+.penkov-bulk-log {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #1d2327;
+    color: #c3c4c7;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 12px;
+    line-height: 1.6;
+}
+.penkov-bulk-log pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Log Table
+   ═══════════════════════════════════════════════════════════ */
+.penkov-log-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+.penkov-log-table th {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 2px solid var(--pk-border);
+    font-weight: 600;
+    color: #1d2327;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+.penkov-log-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #f0f0f1;
+    vertical-align: top;
+}
+.penkov-log-table code {
+    font-size: 11px;
+    background: none;
+    padding: 0;
+}
+
+/* ─── Log filters ─────────────────────────────────────────── */
+.penkov-log-filters {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+.penkov-log-filter.active {
+    background: var(--pk-primary);
+    color: #fff;
+    border-color: var(--pk-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Notices
+   ═══════════════════════════════════════════════════════════ */
+.penkov-notice {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+.penkov-notice-success {
+    background: var(--pk-green-bg);
+    color: var(--pk-green);
+    border: 1px solid rgba(0,163,42,.2);
+}
+.penkov-notice-inline {
+    margin-top: 8px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.penkov-notice-warn {
+    color: #996800;
+}
+
+/* ─── Compat info ─────────────────────────────────────────── */
+.penkov-compat-info ul {
+    margin: 8px 0 0 20px;
+}
+.penkov-compat-info li {
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+/* ─── Empty state ─────────────────────────────────────────── */
+.penkov-empty {
+    text-align: center;
+    padding: 32px;
+    color: var(--pk-gray);
+    font-style: italic;
+}
+
+/* ─── Save button ─────────────────────────────────────────── */
+.penkov-save-btn {
+    margin-top: 12px !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 782px) {
+    .penkov-opt-wrap {
+        margin: 10px;
+    }
+    .penkov-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+    .penkov-opt-header h1 {
+        font-size: 17px;
+    }
+    .penkov-opt-tab {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+    .penkov-bulk-stats {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .penkov-cards {
+        grid-template-columns: 1fr;
+    }
+    .penkov-toggle-group {
+        flex-direction: column;
+    }
+    .penkov-toggle-btn {
+        border-right: none;
+        border-bottom: 1px solid var(--pk-border);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Modal (Delete Originals confirmation)
+   ═══════════════════════════════════════════════════════════ */
+.penkov-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 100100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.penkov-modal {
+    background: #fff;
+    border-radius: var(--pk-radius);
+    max-width: 480px;
+    width: 90%;
+    padding: 28px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.2);
+}
+.penkov-modal h3 {
+    margin: 0 0 12px;
+    color: var(--pk-red);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.penkov-modal p {
+    color: #50575e;
+    line-height: 1.6;
+}
+.penkov-modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
